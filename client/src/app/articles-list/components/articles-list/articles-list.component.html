@@ -1,9 +1,10 @@
-<p>articles-list works!</p>
+<h1>Naujausi straipsniai</h1>
 
-<div>
-  <a routerLink="/article/angular-is-top">Open article</a>
-</div>
-
-<div>
-  <a routerLink="/article/react-is-crap">Open article</a>
+<div
+  *ngFor="let article of articles$ | async"
+  class="list-article"
+>
+  <h3>{{ article.title }}</h3>
+  <p>{{ article.intro }}</p>
+  <a [routerLink]="['/article', article.slug]">Skaityti</a>
 </div>

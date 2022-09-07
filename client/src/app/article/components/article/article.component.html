@@ -1,1 +1,23 @@
-<p>article works!</p>
+<div
+  *ngIf="article$ | async as article"
+  class="article"
+>
+  <h1>{{ article.title }}</h1>
+
+  <div class="d-flex">
+    <span>{{ article.created }}</span>
+  </div>
+
+  <div>
+    <img class="w-100" [src]="article.mainImage.url" alt="">
+  </div>
+
+  <app-article-text
+    [text]="article.text"
+  ></app-article-text>
+
+  <div>
+    {{ article.tags | json }}
+  </div>
+
+</div>

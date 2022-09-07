@@ -1,0 +1,8 @@
+Siek tiek nesutarem su kolegom kam, kaip ir kada turetu buti naudojami "toast notifications". Labai konstruktyviai diskusijai nebuvau pasiruoses. Del to nusprendziau pasidometi detaliau pats ir padaryti paskutines isvadas.
+
+* "Toast" pranesimai neturetu buti labai ikyrus ir trukdyti naudotis app todel jie dazniausiai issoka viename is app kampu ir po keliatos sekundziu dingsta be vartotojo interakcijos.
+* "Toast" pranesimai naudojami informuoti vartotoja apie kazka, kas gali buti svarbu momente. Labai retai naudojami klaidos pranesimams. Klaidos pranesimui reiketu stengtis naudoti baneri, jei tik yra vietos kur baneri galima butu parodyti.
+* "Toast" pranesimas paprastai dingsta be vartotojo interakcijos. Del to tekstas turi buti pakamnkamai trumpas, kad vartotojas spetu ji perskaityti.
+* Neturetu buti per daug dazni, naudojami pranesti tik tikrai svarbius ivykius. Per didelis toastu kiekis gali tapti labai nemalonus vartotojui ir jis nustos kreipti i juos demesi. Tokiu budu pranesimai taps UX dropu ir praras betkokia verte. Jei pranesimai pasidare per nelyg dazni, turbut reiketu apie tai rimtai pagalvoti.
+* Pranesimas neturetu isnykti automatiskai, jei parodoma tam tikra informacija, kuri jokiu budu negali buti praleista.
+* Kartais gali nutikti kad "toast' pranesimas uzdengs kazka svarbaus, ties kuo vartotojas siuo metu dirba. Kad to nenutiks garantuoti yra labai sunku. Del to turetu buti galimybe uzdaryti toasta paspaudimu, kad piktam vartotojui nereiketu laukti kol jis uzsidaris pats.

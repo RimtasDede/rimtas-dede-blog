@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 
+import { ArticlesService } from 'src/app/api/services/articles.service';
+
+
 @Component({
   selector: 'app-articles-list',
   templateUrl: './articles-list.component.html',
@@ -7,7 +10,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ArticlesListComponent implements OnInit {
 
-  constructor() { }
+  articles$ = this.articlesService.getArticles();
+
+  constructor(
+    private articlesService: ArticlesService,
+  ) { }
 
   ngOnInit(): void {
   }
