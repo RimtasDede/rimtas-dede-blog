@@ -8,8 +8,8 @@
     <span>{{ article.created }}</span>
   </div>
 
-  <div>
-    <img class="w-100" [src]="article.mainImage.url" alt="">
+  <div class="main-image-box" [ngStyle]="{ 'max-width': article.mainImage.width + 'px' }">
+    <img class="w-100" [src]="article.mainImage.url" [alt]="article.mainImage.description">
   </div>
 
   <app-article-text

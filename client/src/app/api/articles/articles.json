@@ -8,7 +8,8 @@
     "mainImage": {
       "url": "https://miro.medium.com/max/1400/1*kh36dX-r9FGmTYhVzC44HQ.png",
       "width": 616,
-      "height": 342
+      "height": 342,
+      "description": "Some test short description"
     },
     "created": "2020-05-25T20:11:38Z"
   }
