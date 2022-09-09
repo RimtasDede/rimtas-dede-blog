@@ -1,0 +1,13 @@
+<span class="name">
+  <span
+    *ngFor="let letter of name; index as i"
+    [ngClass]="['letter', 'letter-' + i]"
+  >{{ letter }}</span>
+</span>
+
+<span class="surname">
+  <span
+    *ngFor="let letter of surname; index as i"
+    [ngClass]="['letter', 'letter-' + i]"
+  >{{ letter }}</span>
+</span>
