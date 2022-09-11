@@ -22,7 +22,7 @@ const routes: Routes = [
       },
       {
         path: '',
-        loadChildren: () => import('./categories/categories.module').then(m => m.CategoriesModule),
+        loadChildren: () => import('./tags/tags.module').then(m => m.TagsModule),
         outlet: 'sidebar'
       },
       {
