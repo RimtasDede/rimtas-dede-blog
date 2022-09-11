@@ -14,3 +14,8 @@ export interface RemoteImage {
   height: number;
   description: string;
 }
+
+export interface Tag {
+  name: string;
+  slug: string;
+}
