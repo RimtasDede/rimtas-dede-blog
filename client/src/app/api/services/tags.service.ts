@@ -16,27 +16,33 @@ export class TagsService {
     return of([
       {
         name: 'PHP',
-        slug: 'php'
+        slug: 'php',
+        usedTimes: 8,
       },
       {
         name: 'JavaScript',
-        slug: 'java-script'
+        slug: 'java-script',
+        usedTimes: 15,
       },
       {
         name: 'Angular',
-        slug: 'angular'
+        slug: 'angular',
+        usedTimes: 7,
       },
       {
         name: 'CSS',
-        slug: 'css'
+        slug: 'css',
+        usedTimes: 8,
       },
       {
         name: 'NodeJs',
-        slug: 'node-js'
+        slug: 'node-js',
+        usedTimes: 20,
       },
       {
         name: 'SQL',
-        slug: 'sql'
+        slug: 'sql',
+        usedTimes: 11,
       },
     ])
       .pipe(

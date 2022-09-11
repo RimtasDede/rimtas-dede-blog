@@ -18,4 +18,5 @@ export interface RemoteImage {
 export interface Tag {
   name: string;
   slug: string;
+  usedTimes: number;
 }

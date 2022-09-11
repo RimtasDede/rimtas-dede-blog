@@ -1,5 +1,13 @@
 <div class="row h-100 rounded-end bg-primary-gradient">
   <div class="col">
-    <p>all-categories works!</p>
+    <h3 class="mb-4">Tagai</h3>
+
+    <a
+      *ngFor="let tag of tags$ | async"
+      class="tag-link"
+      [routerLink]="['category', tag.slug]"
+    >
+      {{ tag.name }} <span>{{ tag.usedTimes }}</span>
+    </a>
   </div>
 </div>

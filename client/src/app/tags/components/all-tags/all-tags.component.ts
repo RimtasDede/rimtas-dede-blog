@@ -1,16 +1,19 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+
+import { TagsService } from 'src/app/api/services/tags.service';
+
 
 @Component({
   selector: 'app-all-tags',
   templateUrl: './all-tags.component.html',
   styleUrls: ['./all-tags.component.scss']
 })
-export class AllTagsComponent implements OnInit {
+export class AllTagsComponent {
 
-  constructor() { }
+  tags$ = this.tagsService.getTags();
 
-  ngOnInit(): void {
-    console.log('AllTagsComponent init');
-  }
+  constructor(
+    private tagsService: TagsService,
+  ) { }
 
 }
