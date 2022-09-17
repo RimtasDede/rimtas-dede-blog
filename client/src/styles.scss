@@ -3,6 +3,16 @@ $primary: rgb(62, 36, 132);
 @import '~bootstrap/scss/bootstrap';
 @import '~bootstrap-icons/font/bootstrap-icons.css';
 
+body.theme-dark {
+  // body {
+  //   background: rgb(46, 176, 74) !important;
+  // }
+  // $primary: rgb(46, 176, 74);
+  --bs-primary: #2eb04a;
+
+  background: rgb(50, 50, 50);
+}
+
 html {
   height: 100%;
 }

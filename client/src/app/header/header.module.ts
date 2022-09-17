@@ -4,11 +4,13 @@ import { RouterModule } from '@angular/router';
 
 import { HeaderComponent } from './components/header/header.component';
 import { LogoComponent } from './components/logo/logo.component';
+import { ThemeSwitchComponent } from './components/theme-switch/theme-switch.component';
 
 @NgModule({
   declarations: [
     HeaderComponent,
     LogoComponent,
+    ThemeSwitchComponent,
   ],
   imports: [
     CommonModule,
