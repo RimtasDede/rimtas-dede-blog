@@ -1,6 +1,6 @@
 import { DOCUMENT } from '@angular/common';
 import { Inject, Injectable, Renderer2 } from '@angular/core';
-import { Observable } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 
 export enum Theme {
   Light = 'light',
@@ -12,11 +12,13 @@ const THEME_STORAGE_KEY = 'theme';
 
 @Injectable()
 export class ThemeChangerService {
+  theme$ = new BehaviorSubject<Theme>(Theme.Light);
 
   constructor(
     @Inject(DOCUMENT) private document: Document,
     private renderer: Renderer2,
   ) {
+    // take theme settings from local browser storage
     const theme = this.getThemeFromStorage();
 
     this.set(theme);
@@ -28,6 +30,8 @@ export class ThemeChangerService {
     const classToRemove = this.themeClass(theme === Theme.Light ? Theme.Dark : Theme.Light);
     const classToAdd = this.themeClass(theme);
 
+    this.theme$.next(theme);
+
     this.renderer.removeClass(body, classToRemove);
     this.renderer.addClass(body, classToAdd);
 
@@ -36,39 +40,10 @@ export class ThemeChangerService {
   }
 
   get(): Observable<Theme> {
-    return new Observable(observer => {
-      // take theme from local storage
-      const theme = this.getThemeFromStorage();
-
-      observer.next(theme);
-
-      // observe body class change
-      const mutationObserver = new MutationObserver(() => {
-        const classList = this.document.body.classList;
-
-        if (classList.contains(this.themeClass(Theme.Dark))) {
-          observer.next(Theme.Dark);
-          return;
-        }
-
-        // otherwise Light
-        observer.next(Theme.Light);
-      });
-
-      mutationObserver.observe(this.document.body, {
-        attributes: true,
-        attributeFilter: ['class'],
-        childList: false,
-        characterData: false
-      })
-
-      return () => {
-        mutationObserver.disconnect();
-      };
-    });
+    return this.theme$.asObservable();
   }
 
-  toggle() {
+  toggle(): void {
     const theme = this.getThemeFromStorage();
     const newTheme = theme === Theme.Light ? Theme.Dark : Theme.Light;
 
