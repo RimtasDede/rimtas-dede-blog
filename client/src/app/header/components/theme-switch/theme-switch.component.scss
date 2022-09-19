@@ -48,6 +48,6 @@
     display: block;
     width: 45px;
     height: 45px;
-    transition: $transition-base;
+    @include transition();
   }
 }
