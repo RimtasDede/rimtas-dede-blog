@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 
 import { Theme, ThemeChangerService } from '../../services/theme-changer.service';
 
@@ -11,7 +11,7 @@ import { Theme, ThemeChangerService } from '../../services/theme-changer.service
     ThemeChangerService,
   ]
 })
-export class ThemeSwitchComponent implements OnInit {
+export class ThemeSwitchComponent {
   themeEnum = Theme;
 
   currentTheme$ = this.themeChangerService.get();
@@ -19,9 +19,6 @@ export class ThemeSwitchComponent implements OnInit {
   constructor(
     private themeChangerService: ThemeChangerService,
   ) { }
-
-  ngOnInit(): void {
-  }
 
 
   toggleTheme() {
