@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-import { ThemeChangerService } from '../../services/theme-changer.service';
+import { Theme, ThemeChangerService } from '../../services/theme-changer.service';
 
 
 @Component({
@@ -12,6 +12,7 @@ import { ThemeChangerService } from '../../services/theme-changer.service';
   ]
 })
 export class ThemeSwitchComponent implements OnInit {
+  themeEnum = Theme;
 
   currentTheme$ = this.themeChangerService.get();
 

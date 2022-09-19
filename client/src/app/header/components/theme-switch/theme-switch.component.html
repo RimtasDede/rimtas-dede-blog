@@ -1,3 +1,13 @@
-<button (click)="toggleTheme()">
-  {{ currentTheme$ | async }} change
+<button
+  *ngIf="currentTheme$ | async as theme"
+  class="theme-change-button"
+  [ngClass]="{
+    'theme-change-button--light': theme === themeEnum.Light,
+    'theme-change-button--dark': theme === themeEnum.Dark
+  }"
+  (click)="toggleTheme()"
+  aria-label="Pakeisti spalvų temą"
+>
+  <span class="icon icon--light bi bi-sun-fill"></span>
+  <span class="icon icon--dark bi bi-moon-stars-fill"></span>
 </button>
