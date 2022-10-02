@@ -12,6 +12,7 @@ hljs.registerLanguage('json', require('highlight.js/lib/languages/json'));
 hljs.registerLanguage('scss', require('highlight.js/lib/languages/scss'));
 hljs.registerLanguage('plaintext', require('highlight.js/lib/languages/plaintext'));
 hljs.registerLanguage('ts', require('highlight.js/lib/languages/typescript'));
+hljs.registerLanguage('html', require('highlight.js/lib/languages/xml'));
 
 
 @Pipe({

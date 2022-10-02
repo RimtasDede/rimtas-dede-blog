@@ -37,7 +37,7 @@
 // @import '/node_modules/highlight.js/scss/lightfair.scss'; // light +
 // @import '/node_modules/highlight.js/scss/lioshi.scss'; // dark
 // @import '/node_modules/highlight.js/scss/magula.scss'; // light
-@import '/node_modules/highlight.js/scss/mono-blue.scss'; // light +
+////////@import '/node_modules/highlight.js/scss/mono-blue.scss'; // light +
 // @import '/node_modules/highlight.js/scss/monokai-sublime.scss'; // dark +
 // @import '/node_modules/highlight.js/scss/monokai.scss'; // dark
 // @import '/node_modules/highlight.js/scss/night-owl.scss'; // dark -
@@ -55,7 +55,7 @@
 // @import '/node_modules/highlight.js/scss/rainbow.scss'; // dark +
 // @import '/node_modules/highlight.js/scss/routeros.scss'; // light
 // @import '/node_modules/highlight.js/scss/school-book.scss'; // light -
-// @import '/node_modules/highlight.js/scss/shades-of-purple.scss'; // dark +
+//////@import '/node_modules/highlight.js/scss/shades-of-purple.scss'; // dark +
 // @import '/node_modules/highlight.js/scss/srcery.scss'; // dark +
 // @import '/node_modules/highlight.js/scss/stackoverflow-dark.scss'; // dark
 // @import '/node_modules/highlight.js/scss/stackoverflow-light.scss'; // light +
@@ -68,3 +68,11 @@
 // @import '/node_modules/highlight.js/scss/vs2015.scss'; // dark -
 // @import '/node_modules/highlight.js/scss/xcode.scss'; // light
 // @import '/node_modules/highlight.js/scss/xt256.scss'; // dark -
+
+.theme-light {
+  @import '/node_modules/highlight.js/scss/mono-blue.scss';
+}
+
+.theme-dark {
+  @import '/node_modules/highlight.js/scss/shades-of-purple.scss';
+}

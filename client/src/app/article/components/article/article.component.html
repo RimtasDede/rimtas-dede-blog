@@ -4,8 +4,8 @@
 >
   <h1>{{ article.title }}</h1>
 
-  <div class="d-flex">
-    <span>{{ article.created }}</span>
+  <div class="article-created">
+    Publikuota {{ article.created | date }}
   </div>
 
   <div class="main-image-box" [ngStyle]="{ 'max-width': article.mainImage.width + 'px' }">
