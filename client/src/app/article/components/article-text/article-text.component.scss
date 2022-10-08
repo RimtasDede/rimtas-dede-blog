@@ -69,6 +69,10 @@
 // @import '/node_modules/highlight.js/scss/xcode.scss'; // light
 // @import '/node_modules/highlight.js/scss/xt256.scss'; // dark -
 
+app-article-text {
+  font-size: 18px;
+}
+
 .theme-light {
   @import '/node_modules/highlight.js/scss/mono-blue.scss';
 }
