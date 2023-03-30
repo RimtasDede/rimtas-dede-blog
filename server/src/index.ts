@@ -1,18 +1,27 @@
-import dotenv from 'dotenv';
 import express from 'express';
+import dotenv from 'dotenv';
+import * as bodyParser from 'body-parser';
 
-// env variables init
+import { AppDataSource } from './data-source';
+import routes from './routes';
+
+// init env variables
 dotenv.config();
 
-const app = express();
 const port = process.env.PORT;
 
-// define a route handler for the default home page
-app.get('/', (req, res) => {
-  res.send('Hello world!');
-});
 
-// start the Express server
-app.listen(port, () => {
-  console.log(`server started at http://localhost:${ port }`);
-});
+AppDataSource.initialize().then(async () => {
+  // start express app
+  const app = express();
+
+  app.use(bodyParser.json());
+
+  // register all api routes
+  routes.forEach(r => app.use('/api', r));
+
+  // start express server
+  app.listen(port, () => {
+    console.log(`server started at http://localhost:${ port }`);
+  });
+}).catch(error => console.log(error));
