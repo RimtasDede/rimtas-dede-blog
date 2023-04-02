@@ -12,8 +12,8 @@ class ArticlesController {
   }
 
   async get(req: express.Request, res: express.Response) {
-    const id = +req.params.articleId;
-    const result = await articlesService.get(id);
+    const slug = req.params.articleSlug;
+    const result = await articlesService.get(slug);
 
     res.status(200).send(result);
   }

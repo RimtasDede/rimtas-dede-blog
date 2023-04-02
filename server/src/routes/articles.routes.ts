@@ -10,7 +10,7 @@ export class ArticlesRoutes {
     router.route(`/articles`)
       .get(articlesController.getAll);
 
-    router.route(`/articles/:articleId`)
+    router.route(`/articles/:articleSlug`)
       .get(articlesController.get);
 
     return router;

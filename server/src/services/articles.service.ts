@@ -10,11 +10,22 @@ class ArticlesService {
     return res;
   }
 
-  async get(id: number): Promise<Article> {
-    const res = await AppDataSource.manager.findOneBy(Article, { id });
+  async get(slug: string): Promise<Article> {
+    const res = await AppDataSource.manager.findOneBy(Article, { slug });
 
     return res;
   }
+
+  async save(data: any): Promise<null> {
+    const article = new Article();
+
+    Object.assign(article, data);
+
+    await AppDataSource.manager.save(article);
+
+    return null;
+  }
+
 
 }
 
