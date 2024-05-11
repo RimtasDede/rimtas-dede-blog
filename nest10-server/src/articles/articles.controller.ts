@@ -1,5 +1,7 @@
-import { Controller, Get, Param } from '@nestjs/common';
+import { Controller, Get, Param, ValidationPipe } from '@nestjs/common';
+import { ApiOperation } from '@nestjs/swagger';
 
+import { GetArticleDto } from './dto/get-article.dto';
 import { ArticlesService } from './articles/articles.service';
 
 @Controller('articles')
@@ -8,13 +10,17 @@ export class ArticlesController {
     private articleService: ArticlesService,
   ) {}
 
-  @Get(':id')
-  getOne(@Param('id') id: string): string | any {
-    return this.articleService.findOne(+id);
+  @Get(':id/:aaa')
+  @ApiOperation({ summary: 'Return specific article by ID' })
+  getOne(
+    @Param(ValidationPipe) params: GetArticleDto,
+  ) {
+    return this.articleService.findOne(params.id);
   }
 
   @Get()
-  getAll(): string | any {
+  @ApiOperation({ summary: 'Return articles' })
+  getAll() {
     return this.articleService.findAll();
   }
 }
