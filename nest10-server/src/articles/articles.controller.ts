@@ -1,4 +1,4 @@
-import { Controller, Get, Param, ValidationPipe } from '@nestjs/common';
+import { Controller, Get, Param, ParseIntPipe, Query, ValidationPipe } from '@nestjs/common';
 import { ApiOperation } from '@nestjs/swagger';
 
 import { GetArticleDto } from './dto/get-article.dto';
@@ -20,7 +20,10 @@ export class ArticlesController {
 
   @Get()
   @ApiOperation({ summary: 'Return articles' })
-  getAll() {
-    return this.articleService.findAll();
+  getAll(
+    @Query('page', ParseIntPipe) page: number,
+    @Query('pageSize', ParseIntPipe) pageSize: number,
+  ) {
+    return this.articleService.findAll(page, pageSize);
   }
 }

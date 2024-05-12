@@ -16,9 +16,14 @@ export class ArticlesService {
     });
   }
 
-  findAll(): Promise<Article[]> {
-    return this.usersRepository.find({
+  findAll(page: number = 1, pageSize: number = 20): Promise<[Article[], number]> {
+    const skip = (page - 1) * pageSize;
+    const result = this.usersRepository.findAndCount({
+      skip,
+      take: pageSize,
       order: { created: 'DESC' },
     });
+
+    return result;
   }
 }
