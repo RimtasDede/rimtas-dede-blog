@@ -5,6 +5,7 @@ import { ArticleRoutingModule } from './article-routing.module';
 import { ArticleComponent } from './components/article/article.component';
 import { MarkdownPipe } from './pipes/markdown.pipe';
 import { ArticleTextComponent } from './components/article-text/article-text.component';
+import { ApiModule } from '../api/api.module';
 
 
 @NgModule({
@@ -16,6 +17,7 @@ import { ArticleTextComponent } from './components/article-text/article-text.com
   imports: [
     CommonModule,
     ArticleRoutingModule,
+    ApiModule,
   ]
 })
 export class ArticleModule { }

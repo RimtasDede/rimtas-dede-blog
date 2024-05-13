@@ -10,15 +10,15 @@ export class ArticlesService {
     @InjectRepository(Article) private usersRepository: Repository<Article>,
   ) {}
 
-  findOne(id: number): Promise<Article | null> {
-    return this.usersRepository.findOneBy({
+  async findOne(id: number): Promise<Article | null> {
+    return await this.usersRepository.findOneBy({
       id,
     });
   }
 
-  findAll(page: number = 1, pageSize: number = 20): Promise<[Article[], number]> {
+  async findAll(page: number = 1, pageSize: number = 20): Promise<[Article[], number]> {
     const skip = (page - 1) * pageSize;
-    const result = this.usersRepository.findAndCount({
+    const result = await this.usersRepository.findAndCount({
       skip,
       take: pageSize,
       order: { created: 'DESC' },

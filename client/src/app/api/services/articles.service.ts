@@ -1,36 +1,27 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { delay, map, Observable, of, tap } from 'rxjs';
 
+import { environment } from 'src/environments/environment';
 import { Article } from '../types';
 
 const articles = require('./../articles/articles.json');
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class ArticlesService {
+  private apiUrl = environment.apiUrl;
 
-  constructor() { }
+  constructor(
+    private http: HttpClient,
+  ) { }
 
 
   getArticles(): Observable<Article[]> {
-    return of(articles)
-      .pipe(
-        delay(500)
-      );
+    return this.http.get<Article[]>(this.apiUrl + `/articles`);
   }
 
   getArticle(slug: string): Observable<Article | undefined> {
-    return of(articles as Article[])
-      .pipe(
-        delay(500),
-        map(articles => articles.find(item => item.slug === slug)),
-        tap(article => {
-          if (!article) {
-            new Error('No article');
-          }
-        }),
-      );
+    return this.http.get<Article>(this.apiUrl + `/articles/${slug}`);
   }
 
 }

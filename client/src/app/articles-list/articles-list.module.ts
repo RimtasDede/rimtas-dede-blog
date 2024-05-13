@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { ArticlesListRoutingModule } from './articles-list-routing.module';
 import { ArticlesListComponent } from './components/articles-list/articles-list.component';
+import { ApiModule } from '../api/api.module';
 
 
 @NgModule({
@@ -11,7 +12,8 @@ import { ArticlesListComponent } from './components/articles-list/articles-list.
   ],
   imports: [
     CommonModule,
-    ArticlesListRoutingModule
+    ArticlesListRoutingModule,
+    ApiModule,
   ]
 })
 export class ArticlesListModule { }

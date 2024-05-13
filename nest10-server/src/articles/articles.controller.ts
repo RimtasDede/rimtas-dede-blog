@@ -1,8 +1,9 @@
-import { Controller, Get, Param, ParseIntPipe, Query, ValidationPipe } from '@nestjs/common';
+import { Controller, Get, NotFoundException, Param, Query, ValidationPipe } from '@nestjs/common';
 import { ApiOperation } from '@nestjs/swagger';
 
 import { GetArticleDto } from './dto/get-article.dto';
 import { ArticlesService } from './articles/articles.service';
+import { GetArticlesDto } from './dto/get-articles.dto';
 
 @Controller('articles')
 export class ArticlesController {
@@ -10,20 +11,27 @@ export class ArticlesController {
     private articleService: ArticlesService,
   ) {}
 
-  @Get(':id/:aaa')
+  @Get(':id')
   @ApiOperation({ summary: 'Return specific article by ID' })
-  getOne(
-    @Param(ValidationPipe) params: GetArticleDto,
+  async getOne(
+    @Param() params: GetArticleDto,
   ) {
-    return this.articleService.findOne(params.id);
+    const result = await this.articleService.findOne(params.id);
+
+    if (result === null) {
+      throw new NotFoundException('Article with specified ID dont exists');
+    }
+
+    return result;
   }
 
   @Get()
   @ApiOperation({ summary: 'Return articles' })
-  getAll(
-    @Query('page', ParseIntPipe) page: number,
-    @Query('pageSize', ParseIntPipe) pageSize: number,
+  async getAll(
+    @Query(ValidationPipe) query: GetArticlesDto,
   ) {
-    return this.articleService.findAll(page, pageSize);
+    const result = await this.articleService.findAll(query.page, query.pageSize);
+
+    return result;
   }
 }
