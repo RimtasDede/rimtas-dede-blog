@@ -10,9 +10,9 @@ export class ArticlesService {
     @InjectRepository(Article) private usersRepository: Repository<Article>,
   ) {}
 
-  async findOne(id: number): Promise<Article | null> {
+  async findOne(slug: string): Promise<Article | null> {
     return await this.usersRepository.findOneBy({
-      id,
+      slug,
     });
   }
 

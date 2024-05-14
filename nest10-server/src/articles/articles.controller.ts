@@ -11,15 +11,15 @@ export class ArticlesController {
     private articleService: ArticlesService,
   ) {}
 
-  @Get(':id')
-  @ApiOperation({ summary: 'Return specific article by ID' })
+  @Get(':slug')
+  @ApiOperation({ summary: 'Return specific article by slug' })
   async getOne(
     @Param() params: GetArticleDto,
   ) {
-    const result = await this.articleService.findOne(params.id);
+    const result = await this.articleService.findOne(params.slug);
 
     if (result === null) {
-      throw new NotFoundException('Article with specified ID dont exists');
+      throw new NotFoundException('Article dont exists');
     }
 
     return result;

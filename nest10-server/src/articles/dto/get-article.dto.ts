@@ -1,11 +1,12 @@
 import { ApiProperty } from '@nestjs/swagger';
 import { Type } from 'class-transformer';
-import { IsNotEmpty, IsPositive } from 'class-validator';
+import { IsNotEmpty, MaxLength, MinLength } from 'class-validator';
 
 export class GetArticleDto {
-  @ApiProperty({ description: 'Article ID' })
+  @ApiProperty({ description: 'Article slug' })
   @IsNotEmpty()
-  @Type(() => Number)
-  @IsPositive()
-  id: number;
+  @Type(() => String)
+  @MinLength(1)
+  @MaxLength(100)
+  slug: string;
 }
