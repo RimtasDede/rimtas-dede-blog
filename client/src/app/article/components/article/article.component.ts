@@ -1,15 +1,18 @@
 import { Component, OnInit } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
 import { map, switchMap } from 'rxjs';
 
 import { ArticlesService } from '../../../api/services/articles.service';
 import { Article } from '../../../api/types';
+import { ArticleTextComponent } from '../article-text';
 
 
 @Component({
-  standalone: false,
+  standalone: true,
   selector: 'app-article',
+  imports: [CommonModule, ArticleTextComponent],
   templateUrl: './article.component.html',
   styleUrls: ['./article.component.scss']
 })

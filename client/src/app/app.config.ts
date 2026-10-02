@@ -1,15 +1,14 @@
-import { ApplicationConfig, importProvidersFrom, provideBrowserGlobalErrorListeners } from '@angular/core';
+import { ApplicationConfig, provideBrowserGlobalErrorListeners } from '@angular/core';
+import { provideHttpClient } from '@angular/common/http';
 import { provideRouter, withEnabledBlockingInitialNavigation } from '@angular/router';
 
 import { routes } from './app.routes';
 import { provideClientHydration, withEventReplay } from '@angular/platform-browser';
-import { LayoutModule } from './layout/layout.module';
-import { HeaderModule } from './header/header.module';
 
 export const appConfig: ApplicationConfig = {
   providers: [
     provideBrowserGlobalErrorListeners(),
-    importProvidersFrom(LayoutModule, HeaderModule),
+    provideHttpClient(),
     provideRouter(routes, withEnabledBlockingInitialNavigation()),
     provideClientHydration(withEventReplay())
   ]

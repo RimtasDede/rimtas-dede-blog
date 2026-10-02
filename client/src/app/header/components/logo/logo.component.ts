@@ -1,8 +1,10 @@
+import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 
 @Component({
-  standalone: false,
+  standalone: true,
   selector: 'app-logo',
+  imports: [CommonModule],
   templateUrl: './logo.component.html',
   styleUrls: ['./logo.component.scss']
 })

@@ -7,7 +7,9 @@ import { Article } from '../types';
 
 const articles = require('./../articles/articles.json');
 
-@Injectable()
+@Injectable({
+  providedIn: 'root'
+})
 export class ArticlesService {
   private apiUrl = environment.apiUrl;
 

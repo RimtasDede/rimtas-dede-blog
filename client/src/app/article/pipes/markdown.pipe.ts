@@ -16,7 +16,7 @@ hljs.registerLanguage('html', require('highlight.js/lib/languages/xml'));
 
 
 @Pipe({
-  standalone: false,
+  standalone: true,
   name: 'markdown'
 })
 export class MarkdownPipe implements PipeTransform {

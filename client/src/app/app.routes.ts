@@ -1,7 +1,6 @@
 import { Routes } from '@angular/router';
-import { DefaultLayoutComponent } from './layout/components/default-layout/default-layout.component';
-import { FullLayoutComponent } from './layout/components/full-layout/full-layout.component';
-import { HeaderComponent } from './header/components/header/header.component';
+import { DefaultLayoutComponent, FullLayoutComponent } from './layout';
+import { HeaderComponent } from './header';
 
 export const routes: Routes = [
 	{
@@ -16,16 +15,16 @@ export const routes: Routes = [
 			{
 				path: '',
 				pathMatch: 'full',
-				loadChildren: () => import('./articles-list/articles-list.module').then((m) => m.ArticlesListModule)
+				loadChildren: () => import('./articles-list').then((m) => m.ARTICLES_LIST_ROUTES)
 			},
 			{
 				path: '',
-				loadChildren: () => import('./tags/tags.module').then((m) => m.TagsModule),
+				loadChildren: () => import('./tags').then((m) => m.TAGS_ROUTES),
 				outlet: 'sidebar'
 			},
 			{
 				path: 'article/:slug',
-				loadChildren: () => import('./article/article.module').then((m) => m.ArticleModule)
+				loadChildren: () => import('./article').then((m) => m.ARTICLE_ROUTES)
 			}
 		]
 	},
@@ -40,12 +39,12 @@ export const routes: Routes = [
 			},
 			{
 				path: 'contacts',
-				loadChildren: () => import('./contacts/contacts.module').then((m) => m.ContactsModule)
+				loadChildren: () => import('./contacts').then((m) => m.CONTACTS_ROUTES)
 			}
 		]
 	},
 	{
 		path: '**',
-		loadChildren: () => import('./page404/page404.module').then((m) => m.Page404Module)
+		loadChildren: () => import('./page404').then((m) => m.PAGE404_ROUTES)
 	}
 ];
