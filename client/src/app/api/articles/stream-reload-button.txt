@@ -1,0 +1,11 @@
+Kadangi esu RxJs believeris, dirbdamas su Angular stengiuosi visada isnaudoti RxJs privalumus. Stengiuosi vengti subscribe ir visada ji pakeisti i async pipe. Todel dalinuosi kaip implementuoju streamo reload mygtuka naudodamas tai kartu su async pipe.
+
+```ts
+reload$ = new Subject();
+
+stream$ = merge(
+  this.reload$
+)
+  .pipe();
+
+```

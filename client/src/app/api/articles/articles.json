@@ -1,0 +1,16 @@
+[
+  {
+    "slug": "stream-reload-button",
+    "title": "RxJs: Stream reload button",
+    "intro": "Kazkas apie streamus",
+    "text": "Kadangi esu RxJs believeris, dirbdamas su Angular stengiuosi visada isnaudoti RxJs privalumus. Stengiuosi vengti subscribe ir visada ji pakeisti i async pipe. Todel dalinuosi kaip implementuoju streamo reload mygtuka naudodamas tai kartu su async pipe.\n\n```ts\nreload$ = new Subject();\n\nstream$ = merge(\n  this.reload$\n)\n.pipe();\n```\n ```html\n<div class=\"container\"><b>Test html</b></div>\n```",
+    "tags": ["javascript", "rxjs"],
+    "mainImage": {
+      "url": "https://miro.medium.com/max/1400/1*kh36dX-r9FGmTYhVzC44HQ.png",
+      "width": 616,
+      "height": 342,
+      "description": "Some test short description"
+    },
+    "created": "2020-05-25T20:11:38Z"
+  }
+]

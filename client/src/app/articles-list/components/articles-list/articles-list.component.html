@@ -1,0 +1,10 @@
+<h1>Naujausi straipsniai</h1>
+
+<div
+  *ngFor="let article of articles$ | async"
+  class="list-article"
+>
+  <h3>{{ article.title }}</h3>
+  <p>{{ article.intro }}</p>
+  <a [routerLink]="['/article', article.slug]">Skaityti</a>
+</div>

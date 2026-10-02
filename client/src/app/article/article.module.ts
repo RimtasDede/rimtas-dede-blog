@@ -1,0 +1,23 @@
+import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
+
+import { ArticleRoutingModule } from './article-routing.module';
+import { ArticleComponent } from './components/article/article.component';
+import { MarkdownPipe } from './pipes/markdown.pipe';
+import { ArticleTextComponent } from './components/article-text/article-text.component';
+import { ApiModule } from '../api/api.module';
+
+
+@NgModule({
+  declarations: [
+    ArticleComponent,
+    MarkdownPipe,
+    ArticleTextComponent,
+  ],
+  imports: [
+    CommonModule,
+    ArticleRoutingModule,
+    ApiModule,
+  ]
+})
+export class ArticleModule { }

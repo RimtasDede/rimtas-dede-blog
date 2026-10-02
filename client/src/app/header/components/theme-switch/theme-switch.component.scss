@@ -1,0 +1,53 @@
+@import 'bootstrap/scss/bootstrap-utilities';
+
+.theme-change-button {
+  position: relative;
+  width: 45px;
+  height: 45px;
+  font-size: 1.5rem;
+  line-height: 45px;
+  background: transparent;
+  border: 0;
+  padding: 0;
+  text-align: center;
+  overflow: hidden;
+  mask-image: linear-gradient(270deg, rgba(#000, 0) 0%, #000 15%, #000 85%, rgba(#000, 0) 100%);
+
+  &--light {
+    color: var(--bs-primary);
+
+    .icon {
+      &--light {
+        translate: 0;
+      }
+
+      &--dark {
+        translate: 45px;
+      }
+    }
+  }
+
+  &--dark {
+    color: var(--bs-light);
+
+    .icon {
+      &--light {
+        translate: -45px;
+      }
+
+      &--dark {
+        translate: 0;
+      }
+    }
+  }
+
+  .icon {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: block;
+    width: 45px;
+    height: 45px;
+    @include transition();
+  }
+}

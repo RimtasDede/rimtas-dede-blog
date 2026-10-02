@@ -1,0 +1,23 @@
+<div
+  *ngIf="article$ | async as article"
+  class="article"
+>
+  <h1>{{ article.title }}</h1>
+
+  <div class="article-created">
+    Publikuota {{ article.created | date }}
+  </div>
+
+  <div class="main-image-box" [ngStyle]="{ 'max-width': article.mainImage.width + 'px' }">
+    <img class="w-100" [src]="article.mainImage.url" [alt]="article.mainImage.description">
+  </div>
+
+  <app-article-text
+    [text]="article.text"
+  ></app-article-text>
+
+  <div>
+    {{ article.tags | json }}
+  </div>
+
+</div>

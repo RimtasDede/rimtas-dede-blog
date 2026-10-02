@@ -1,0 +1,13 @@
+.nav-link {
+  text-transform: uppercase;
+}
+
+:host-context(.theme-dark) {
+  .navbar-brand {
+    color: #cdd9e5;
+  }
+
+  .nav-link {
+    color: #cdd9e5;
+  }
+}
